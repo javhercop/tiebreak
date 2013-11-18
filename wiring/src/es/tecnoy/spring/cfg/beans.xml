@@ -5,7 +5,9 @@
 
 
 
-<bean id="alex" class="es.tecnoy.spring.entity.Juggler"></bean>
+<bean id="alex" class="es.tecnoy.spring.entity.Juggler">
+	<constructor-arg value="15"/>
+</bean>
 
 
 </beans>
