@@ -9,5 +9,8 @@
 	<constructor-arg value="15"/>
 </bean>
 
+<bean id="sonnet" class="es.tecnoy.spring.entity.Sonnet29">
+
+</bean>
 
 </beans>
