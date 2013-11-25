@@ -3,14 +3,22 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<bean id="alex" class="es.tecnoy.spring.entity.Juggler"
+			scope="singleton">
+		<constructor-arg value="15" />
+	</bean>
 
+	<bean id="duke" class="es.tecnoy.spring.entity.PoeticJuggler">
+		<constructor-arg value="20" />
+		<constructor-arg ref="sonnet" />
+	</bean>
 
-<bean id="alex" class="es.tecnoy.spring.entity.Juggler">
-	<constructor-arg value="15"/>
-</bean>
+	<bean id="sonnet" class="es.tecnoy.spring.entity.Sonnet29" />
 
-<bean id="sonnet" class="es.tecnoy.spring.entity.Sonnet29">
-
-</bean>
-
+	<bean id="stage" class="es.tecnoy.spring.entity.Stage"
+		factory-method="getInstance"
+		init-method="start"
+		destroy-method="end" />
+		
+	
 </beans>
