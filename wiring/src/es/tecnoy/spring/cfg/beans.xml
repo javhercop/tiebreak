@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 
-	<bean id="alex" class="es.tecnoy.spring.entity.Juggler"
-			scope="singleton">
+	<context:component-scan 
+		base-package="es.tecnoy.spring">
+	</context:component-scan>
+
+	<bean id="alex" class="es.tecnoy.spring.entity.Juggler" scope="singleton">
 		<constructor-arg value="15" />
 	</bean>
 
@@ -16,9 +22,39 @@
 	<bean id="sonnet" class="es.tecnoy.spring.entity.Sonnet29" />
 
 	<bean id="stage" class="es.tecnoy.spring.entity.Stage"
-		factory-method="getInstance"
-		init-method="start"
-		destroy-method="end" />
-		
-	
+		factory-method="getInstance" init-method="start" destroy-method="end" />
+
+	<util:list id="songs">
+		<bean id="s0" class="java.lang.String">
+			<constructor-arg value="Smooth criminal"></constructor-arg>
+		</bean>
+		<bean id="s1" class="java.lang.String">
+			<constructor-arg value="Highway to hell"></constructor-arg>
+		</bean>
+		<bean id="s2" class="java.lang.String">
+			<constructor-arg value="It's my life"></constructor-arg>
+		</bean>
+		<bean id="s3" class="java.lang.String">
+			<constructor-arg value="Let it be"></constructor-arg>
+		</bean>
+		<bean id="s4" class="java.lang.String">
+			<constructor-arg value="Show must go on"></constructor-arg>
+		</bean>
+
+	</util:list>
+
+	<!-- <bean id="saxophone" class="es.tecnoy.spring.entity.Saxophone"></bean> -->
+
+	<!-- <bean id="piano1" class="es.tecnoy.spring.entity.Piano"></bean> -->
+	<!-- <bean id="saxophone" class="es.tecnoy.spring.entity.Saxophone"></bean>
+
+	<bean id="pianista" class="es.tecnoy.spring.entity.Instrumentalist">
+		<property name="song" value="Highway to hell"></property>
+	</bean> -->
+
+	<!-- <bean id="copycat" class="es.tecnoy.spring.entity.Instrumentalist" 
+		autowire="byType"> <property name="song" value="Jingle Bells"></property> 
+		</bean> -->
+
+
 </beans>
